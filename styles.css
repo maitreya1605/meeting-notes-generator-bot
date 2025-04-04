@@ -1,32 +1,45 @@
-/* Dark mode (default) */
+/* General Styling */
 body {
     font-family: Arial, sans-serif;
     background-color: #121212;
     color: white;
     text-align: center;
-    transition: all 0.3s ease;
+    margin: 0;
+    padding: 0;
 }
 
-.light-mode {
-    background-color: #f1f1f1;
+/* Light Mode Toggle */
+body.light-mode {
+    background-color: #f2f2f2;
+    color: #222;
+}
+
+body.light-mode #chat-container {
+    background: #ffffff;
+    border: 1px solid #ccc;
+}
+
+body.light-mode .message.user {
+    background-color: #007bff;
+    color: white;
+}
+
+body.light-mode .message.bot {
+    background-color: #e0e0e0;
     color: black;
 }
 
+/* Chat Container */
 #chat-container {
     width: 60%;
     margin: 20px auto;
     background: #1e1e1e;
-    padding: 10px;
+    padding: 15px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
-    transition: background 0.3s ease;
 }
 
-.light-mode #chat-container {
-    background: #ffffff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
+/* Chat Box */
 #chat-box {
     height: 300px;
     overflow-y: auto;
@@ -34,52 +47,77 @@ body {
     border: 2px solid #fff;
     border-radius: 5px;
     background-color: #252525;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.light-mode #chat-box {
-    background-color: #f9f9f9;
-    border-color: #000;
-}
-
+/* Message Bubbles */
 .message {
-    padding: 8px;
-    margin: 5px;
-    border-radius: 5px;
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 15px;
+    max-width: 70%;
+    
+    word-wrap: break-word;
+    font-size: 15px;
 }
 
-.user {
-    text-align: right;
+/* User Message */
+.message.user {
     background-color: #007bff;
     color: white;
+    align-self: flex-end;
+    text-align: left;
 }
 
-.bot {
-    text-align: left;
+/* Bot Message */
+.message.bot {
     background-color: #444;
     color: white;
+    align-self: flex-start;
+    text-align: left;
 }
 
-.light-mode .bot {
-    background-color: #e0e0e0;
-    color: black;
-}
-
+/* Input & Button */
 input {
-    width: 80%;
+    width: 75%;
     padding: 10px;
     margin-top: 10px;
     border-radius: 5px;
+    border: none;
+    font-size: 16px;
 }
 
 button {
-    padding: 10px;
+    padding: 10px 15px;
     background-color: #28a745;
     color: white;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
     margin-top: 10px;
+    border: none;
 }
 
 button:hover {
     background-color: #218838;
+}
+
+/* Dark/Light Toggle Button */
+#mode-toggle {
+    margin-top: 15px;
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #555;
+    color: white;
+    border: none;
+}
+
+body.light-mode #mode-toggle {
+    background-color: #ddd;
+    color: black;
 }
