@@ -19,7 +19,7 @@ function sendMessage() {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      contents: [{ parts: [{ text: "Please give a detailed answer to: " + userMessage }] }]
+      contents: [{ parts: [{ text: "Explain the following in bullet points with clarity and structure: " + userMessage }] }]
     })
   })
   .then(response => response.json())
